@@ -25,12 +25,7 @@ jobs:
         run: zip -qq aws-accelerator-config.zip *.yaml
 
       - name: Upload zipped config to S3
-        uses: keithweaver/aws-s3-github-action@v1.0.0
-        with:
-          command: cp
-          source: ./aws-accelerator-config.zip
-          destination: s3://aws-accelerator-config-${{ vars.AWS_ACCOUNT_ID }}-${{ vars.AWS_REGION }}/zipped/aws-accelerator-config.zip
-          aws_region: ${{ vars.AWS_REGION }}
+        run: s3://aws-accelerator-config-${{ vars.AWS_ACCOUNT_ID }}-${{ vars.AWS_REGION }}/zipped/aws-accelerator-config.zip
 
       # - name: Trigger Codepipeline
       #   uses: rexsateesh/aws-codepipeline-action@v1.0
