@@ -1,0 +1,34 @@
+mandatoryAccounts:
+  - name: Management
+    description: >-
+      The management (primary) account. Do not change the name field for this
+      mandatory account. Note, the account name key does not need to match the
+      AWS account name.
+    email: hoang200340@gmail.com
+    organizationalUnit: Root
+    warm: false
+  - name: LogArchive
+    description: >-
+      The log archive account. Do not change the name field for this mandatory
+      account. Note, the account name key does not need to match the AWS account
+      name.
+    email: hoang200340+log@gmail.com
+    organizationalUnit: Security
+    warm: false
+  - name: Audit
+    description: >-
+      The security audit account (also referred to as the audit account). Do not
+      change the name field for this mandatory account. Note, the account name
+      key does not need to match the AWS account name.
+    email: hoang200340+audit@gmail.com
+    organizationalUnit: Security
+    warm: false
+workloadAccounts:
+  - name: HoangPVNoventiq
+    email: Ho.Pham@noventiq.com
+    organizationalUnit: Prod1
+    warm: false
+  - name: LocNguyenNoventiq
+    email: LocNguyen@noventiq.com
+    organizationalUnit: Prod4
+    warm: false

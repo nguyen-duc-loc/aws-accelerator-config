@@ -1,0 +1,13 @@
+enable: true
+organizationalUnits:
+  - name: Security
+  - name: Infrastructure
+  - name: Prod1
+  - name: Prod2
+  - name: Infrastructure/Network
+  - name: Prod3
+  - name: Prod4
+serviceControlPolicies: []
+taggingPolicies: []
+chatbotPolicies: []
+backupPolicies: []
