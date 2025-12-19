@@ -15,33 +15,22 @@ jobs:
       - name: Checkout app repository
         uses: actions/checkout@v5
 
-      - name: List files (Debug)
-        run: ls -R
-
-      - name: Zip config files
-        run: zip -qq aws-accelerator-config.zip *.yaml
-
-      - name: List files (Debug)
-        run: ls -R
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.AWS_UPDATE_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
-      # - name: Zip config files
-      #   uses: montudor/action-zip@v1
-      #   with:
-      #     args: zip -qq aws-accelerator-config.zip *.yaml
+      - name: Zip config files
+        run: zip -qq aws-accelerator-config.zip *.yaml
 
-      # - name: Upload zipped config to S3
-      #   uses: keithweaver/aws-s3-github-action@v1.0.0
-      #   with:
-      #     command: cp
-      #     source: ./aws-accelerator-config.zip
-      #     destination: s3://aws-accelerator-config-${{ vars.AWS_ACCOUNT_ID }}-${{ vars.AWS_REGION }}/zipped/aws-accelerator-config.zip
-      #     aws_region: ${{ vars.AWS_REGION }}
+      - name: Upload zipped config to S3
+        uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: cp
+          source: ./aws-accelerator-config.zip
+          destination: s3://aws-accelerator-config-${{ vars.AWS_ACCOUNT_ID }}-${{ vars.AWS_REGION }}/zipped/aws-accelerator-config.zip
+          aws_region: ${{ vars.AWS_REGION }}
 
       # - name: Trigger Codepipeline
       #   uses: rexsateesh/aws-codepipeline-action@v1.0
